@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block containt %}
+
+    <h2 style="text-align: left; margin:3% 0%;">Add Book in The Book Library....!</h2>
+
+    <form method="POST">
+        {% csrf_token %}        <!-- csrf_token security purpose -->
+        
+        <label>Book Name:- </label>
+        <input type="text" name="fname" required><br><br>
+        
+        <label>Book Price:- </label>
+        <input type="number" name="fprice" required><br><br>
+        
+        <label>Book Quantity:- </label>
+        <input type="number" name="fqty" required><br><br>
+        
+        <label>Book Is Published:- </label>&nbsp;&nbsp;
+        Yes: &nbsp;<input type="radio" value="Yes" name="fispub" checked> &nbsp;&nbsp;&nbsp;&nbsp;
+        No: &nbsp;<input type="radio" value="No" name="fispub"><br><br>
+        
+        <button class="btn btn-primary" type="submit" name="fbtn">Submit</button>
+
+    </form>
+    
+{% endblock %}

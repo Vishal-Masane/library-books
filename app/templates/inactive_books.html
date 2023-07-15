@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block containt %}
+
+      <h2 style="text-align: center; margin: 3%;">Inactive Books form <b style="color: rgb(236, 127, 19);">Books Library</b>....!</h2>
+    
+
+      <table class="table table-striped table-secondary table-hover table-bordered" style="text-align: center; width:100%">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Is Published</th>
+            <th scope="col">Is Active</th>
+            <th scope="col">Choose any Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for book in inactive_books %}
+            <tr>
+            <td>{{book.id}} </td>
+            <td>{{book.name}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.qty}}</td>
+            <td>{{book.is_published}}</td>
+            <td>{{book.is_active}}</td>
+            <td><a style="font-size: 12px !important;" type="button" class="btn btn-primary" href="{% url 'single_book' book.id %}">View</a> <a style="font-size: 12px !important;" type="button" class="btn btn-success" href="{% url 'update_book' book.id %}">Edit</a> <a style="font-size: 12px !important;" type="button" class="btn btn-danger" href="{% url 'hard_delete' book.id %}">Hard Delete</a></td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+
+
+    {% endblock %}
+    
